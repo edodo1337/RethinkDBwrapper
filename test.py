@@ -1,25 +1,15 @@
-def func(f):
-    def wrapper(*args, **kwargs):
-        print('hello')
-        result = f(*args, **kwargs)
-        print("good")
-        return result
-
-    return wrapper
+from db.utils import DBWrapper, establish_connection
+from db.models.user import User
 
 
-@func
-def f(x):
-    return x
+
+db_wrap = DBWrapper()
+
+db_wrap.setup()
 
 
-print(f(5))
+conn = db_wrap.connection
+rdb = db_wrap.rdb
+print(rdb.table('user').run(conn))
 
-from rethinkdb import RethinkDB
-
-rdb = RethinkDB()
-
-conn = rdb.connect(host='localhost', port='28015', db='test_db')
-
-db = rdb.db('test_db')
-print(db.table('user').run(conn))
+print(User.table)
