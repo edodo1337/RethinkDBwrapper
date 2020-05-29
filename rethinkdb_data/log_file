@@ -1,0 +1,95 @@
+2020-05-28T12:15:55.814111292 0.056406s notice: Recursively removing directory /home/eldar/PycharmProjects/rethink_module/rethinkdb_data/tmp
+2020-05-28T12:15:55.839593779 0.081895s notice: Initializing directory /home/eldar/PycharmProjects/rethink_module/rethinkdb_data
+2020-05-28T12:15:55.839782566 0.082077s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/home/eldar/PycharmProjects/rethink_module/rethinkdb_data' did not already exist or is empty.)
+2020-05-28T12:15:55.839858169 0.082152s notice: Running rethinkdb 2.4.0~0bionic (CLANG 6.0.0 (tags/RELEASE_600/final))...
+2020-05-28T12:15:55.847074753 0.089375s notice: Running on Linux 5.0.0-23-generic x86_64
+2020-05-28T12:15:55.847211471 0.089505s notice: Loading data from directory /home/eldar/PycharmProjects/rethink_module/rethinkdb_data
+2020-05-28T12:15:56.092773732 0.335076s info: Automatically using cache size of 1548 MB
+2020-05-28T12:15:56.109582844 0.351877s error: TCP socket creation failed for port 29015: Address already in use.
+2020-05-28T12:16:07.043769785 0.026516s notice: Running rethinkdb 2.4.0~0bionic (CLANG 6.0.0 (tags/RELEASE_600/final))...
+2020-05-28T12:16:07.051499243 0.034246s notice: Running on Linux 5.0.0-23-generic x86_64
+2020-05-28T12:16:07.051701150 0.034440s notice: Loading data from directory /home/eldar/PycharmProjects/rethink_module/rethinkdb_data
+2020-05-28T12:16:07.138481474 0.121227s info: Automatically using cache size of 1575 MB
+2020-05-28T12:16:07.139848197 0.122587s notice: Listening for intracluster connections on port 29015
+2020-05-28T12:16:07.142096969 0.124836s notice: Listening for client driver connections on port 28015
+2020-05-28T12:16:07.142268628 0.125007s notice: Listening for administrative HTTP connections on port 8080
+2020-05-28T12:16:07.142284716 0.125023s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-05-28T12:16:07.142303552 0.125042s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-05-28T12:16:07.142323391 0.125062s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-05-28T12:16:07.142349765 0.125088s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-05-28T12:16:07.142369579 0.125108s notice: Server ready, "eldar_2ff" 32135fee-1d9b-458f-a25f-04990444a924
+2020-05-28T12:16:20.003980633 12.986720s warn: Received invalid clustering header from [::1]:44134, closing connection -- something might be connecting to the wrong port.
+2020-05-28T12:25:28.357730284 0.021684s notice: Running rethinkdb 2.4.0~0bionic (CLANG 6.0.0 (tags/RELEASE_600/final))...
+2020-05-28T12:25:28.360352856 0.024307s notice: Running on Linux 5.0.0-23-generic x86_64
+2020-05-28T12:25:28.360427158 0.024378s notice: Loading data from directory /home/eldar/PycharmProjects/rethink_module/rethinkdb_data
+2020-05-28T12:25:28.435406049 0.099365s info: Automatically using cache size of 1474 MB
+2020-05-28T12:25:28.437229027 0.101181s notice: Listening for intracluster connections on port 29015
+2020-05-28T12:25:28.439054292 0.103006s notice: Listening for client driver connections on port 28015
+2020-05-28T12:25:28.439216180 0.103168s notice: Listening for administrative HTTP connections on port 8080
+2020-05-28T12:25:28.439230253 0.103181s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-05-28T12:25:28.439248940 0.103200s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-05-28T12:25:28.439269438 0.103221s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-05-28T12:25:28.439294743 0.103246s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-05-28T12:25:28.439316072 0.103267s notice: Server ready, "eldar_2ff" 32135fee-1d9b-458f-a25f-04990444a924
+2020-05-28T12:31:11.365435775 343.029387s info: Table dc5dac6a-bd0b-4867-9a9e-17a6483ed22e: Starting a new Raft election for term 1.
+2020-05-28T12:31:11.366145198 343.030097s info: Table dc5dac6a-bd0b-4867-9a9e-17a6483ed22e: Added replica on this server.
+2020-05-28T12:31:11.445858696 343.109811s info: Table dc5dac6a-bd0b-4867-9a9e-17a6483ed22e: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T12:40:46.972391792 918.636344s info: Table 867b9118-5682-45f0-97cb-829ab9a5df4b: Starting a new Raft election for term 1.
+2020-05-28T12:40:46.972777263 918.636729s info: Table 867b9118-5682-45f0-97cb-829ab9a5df4b: Added replica on this server.
+2020-05-28T12:40:47.016682100 918.680634s info: Table 867b9118-5682-45f0-97cb-829ab9a5df4b: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T13:09:52.416957894 2664.080910s info: Table 7e2f2dd8-5242-498a-a685-fb551dce0b48: Starting a new Raft election for term 1.
+2020-05-28T13:09:52.417424374 2664.081376s info: Table 7e2f2dd8-5242-498a-a685-fb551dce0b48: Added replica on this server.
+2020-05-28T13:09:52.461626945 2664.125579s info: Table 7e2f2dd8-5242-498a-a685-fb551dce0b48: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T13:12:53.649909848 2845.313862s info: Table d0f3f576-7bc8-41f6-bb9a-8ef09d179618: Starting a new Raft election for term 1.
+2020-05-28T13:12:53.650178255 2845.314131s info: Table d0f3f576-7bc8-41f6-bb9a-8ef09d179618: Added replica on this server.
+2020-05-28T13:12:53.709600319 2845.373552s info: Table d0f3f576-7bc8-41f6-bb9a-8ef09d179618: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T14:04:02.880451938 5914.544404s info: Table 7871e74e-b2a6-4a2d-99a3-5dbc694f4df8: Starting a new Raft election for term 1.
+2020-05-28T14:04:02.881119806 5914.545072s info: Table 7871e74e-b2a6-4a2d-99a3-5dbc694f4df8: Added replica on this server.
+2020-05-28T14:04:02.936285938 5914.600238s info: Table 7871e74e-b2a6-4a2d-99a3-5dbc694f4df8: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T14:06:35.623249212 6067.287201s info: Table 5f1bd328-0041-4a8e-8d14-519c51ece56e: Starting a new Raft election for term 1.
+2020-05-28T14:06:35.623477011 6067.287429s info: Table 5f1bd328-0041-4a8e-8d14-519c51ece56e: Added replica on this server.
+2020-05-28T14:06:35.665774858 6067.329727s info: Table 5f1bd328-0041-4a8e-8d14-519c51ece56e: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T14:06:37.454611959 6069.118564s info: Table 9ba43ffa-024f-4afe-9cf3-2a6f84a92486: Starting a new Raft election for term 1.
+2020-05-28T14:06:37.455034220 6069.118986s info: Table 9ba43ffa-024f-4afe-9cf3-2a6f84a92486: Added replica on this server.
+2020-05-28T14:06:37.510165034 6069.174117s info: Table 9ba43ffa-024f-4afe-9cf3-2a6f84a92486: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T14:08:51.917237828 6203.581190s notice: Removing file /home/eldar/PycharmProjects/rethink_module/rethinkdb_data/5f1bd328-0041-4a8e-8d14-519c51ece56e
+2020-05-28T14:08:51.917252491 6203.581204s info: Table 5f1bd328-0041-4a8e-8d14-519c51ece56e: Deleted the table.
+2020-05-28T14:08:51.970061601 6203.634013s notice: Removing file /home/eldar/PycharmProjects/rethink_module/rethinkdb_data/7e2f2dd8-5242-498a-a685-fb551dce0b48
+2020-05-28T14:08:51.970078752 6203.634030s info: Table 7e2f2dd8-5242-498a-a685-fb551dce0b48: Deleted the table.
+2020-05-28T14:08:52.024501830 6203.688453s notice: Removing file /home/eldar/PycharmProjects/rethink_module/rethinkdb_data/9ba43ffa-024f-4afe-9cf3-2a6f84a92486
+2020-05-28T14:08:52.024515227 6203.688466s info: Table 9ba43ffa-024f-4afe-9cf3-2a6f84a92486: Deleted the table.
+2020-05-28T14:08:52.093061640 6203.757013s notice: Removing file /home/eldar/PycharmProjects/rethink_module/rethinkdb_data/d0f3f576-7bc8-41f6-bb9a-8ef09d179618
+2020-05-28T14:08:52.093076301 6203.757028s info: Table d0f3f576-7bc8-41f6-bb9a-8ef09d179618: Deleted the table.
+2020-05-28T14:10:05.498976719 6277.162928s info: Table 4f872faf-810a-4a03-8962-f23cce8e47ef: Starting a new Raft election for term 1.
+2020-05-28T14:10:05.499213261 6277.163165s info: Table 4f872faf-810a-4a03-8962-f23cce8e47ef: Added replica on this server.
+2020-05-28T14:10:05.599185163 6277.263137s info: Table 4f872faf-810a-4a03-8962-f23cce8e47ef: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T14:10:07.308698345 6278.972650s info: Table f43cadbb-fcee-4842-8fb9-ca69903638c0: Starting a new Raft election for term 1.
+2020-05-28T14:10:07.309783972 6278.973736s info: Table f43cadbb-fcee-4842-8fb9-ca69903638c0: Added replica on this server.
+2020-05-28T14:10:07.358595316 6279.022547s info: Table f43cadbb-fcee-4842-8fb9-ca69903638c0: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T14:13:33.703793066 6485.367745s notice: Removing file /home/eldar/PycharmProjects/rethink_module/rethinkdb_data/4f872faf-810a-4a03-8962-f23cce8e47ef
+2020-05-28T14:13:33.703808682 6485.367760s info: Table 4f872faf-810a-4a03-8962-f23cce8e47ef: Deleted the table.
+2020-05-28T14:13:33.828046504 6485.491998s notice: Removing file /home/eldar/PycharmProjects/rethink_module/rethinkdb_data/f43cadbb-fcee-4842-8fb9-ca69903638c0
+2020-05-28T14:13:33.828061660 6485.492013s info: Table f43cadbb-fcee-4842-8fb9-ca69903638c0: Deleted the table.
+2020-05-28T14:14:21.938468963 6533.602421s info: Table f824d25b-6437-4d54-bae5-41ccd1bad7e5: Starting a new Raft election for term 1.
+2020-05-28T14:14:21.938969433 6533.602921s info: Table f824d25b-6437-4d54-bae5-41ccd1bad7e5: Added replica on this server.
+2020-05-28T14:14:22.071906593 6533.735858s info: Table f824d25b-6437-4d54-bae5-41ccd1bad7e5: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T14:14:23.757978760 6535.421930s info: Table 80ef50fa-9761-4799-ace1-947185aa4d0f: Starting a new Raft election for term 1.
+2020-05-28T14:14:23.758412946 6535.422365s info: Table 80ef50fa-9761-4799-ace1-947185aa4d0f: Added replica on this server.
+2020-05-28T14:14:23.821193209 6535.485145s info: Table 80ef50fa-9761-4799-ace1-947185aa4d0f: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T14:16:10.695134734 6642.359086s notice: Removing file /home/eldar/PycharmProjects/rethink_module/rethinkdb_data/80ef50fa-9761-4799-ace1-947185aa4d0f
+2020-05-28T14:16:10.695142054 6642.359093s info: Table 80ef50fa-9761-4799-ace1-947185aa4d0f: Deleted the table.
+2020-05-28T14:16:10.786041983 6642.449993s notice: Removing file /home/eldar/PycharmProjects/rethink_module/rethinkdb_data/f824d25b-6437-4d54-bae5-41ccd1bad7e5
+2020-05-28T14:16:10.786046994 6642.449998s info: Table f824d25b-6437-4d54-bae5-41ccd1bad7e5: Deleted the table.
+2020-05-28T14:16:25.694250383 6657.358202s info: Table 5172cce4-458b-4ecc-b798-9f2cfce36fbc: Starting a new Raft election for term 1.
+2020-05-28T14:16:25.694419142 6657.358370s info: Table 5172cce4-458b-4ecc-b798-9f2cfce36fbc: Added replica on this server.
+2020-05-28T14:16:25.755363849 6657.419315s info: Table 5172cce4-458b-4ecc-b798-9f2cfce36fbc: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T14:16:27.521172224 6659.185124s info: Table 497e5023-226a-4eb7-afce-6de0e750a353: Starting a new Raft election for term 1.
+2020-05-28T14:16:27.522124746 6659.186077s info: Table 497e5023-226a-4eb7-afce-6de0e750a353: Added replica on this server.
+2020-05-28T14:16:27.589745282 6659.253697s info: Table 497e5023-226a-4eb7-afce-6de0e750a353: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-28T14:17:20.551414239 6712.215366s notice: Removing file /home/eldar/PycharmProjects/rethink_module/rethinkdb_data/497e5023-226a-4eb7-afce-6de0e750a353
+2020-05-28T14:17:20.551435558 6712.215387s info: Table 497e5023-226a-4eb7-afce-6de0e750a353: Deleted the table.
+2020-05-28T14:17:20.618497919 6712.282450s notice: Removing file /home/eldar/PycharmProjects/rethink_module/rethinkdb_data/5172cce4-458b-4ecc-b798-9f2cfce36fbc
+2020-05-28T14:17:20.618514874 6712.282466s info: Table 5172cce4-458b-4ecc-b798-9f2cfce36fbc: Deleted the table.
+2020-05-28T14:17:30.453471410 6722.117423s info: Table 9a3585d0-f665-4b54-b8c3-66bf3a676342: Starting a new Raft election for term 1.
+2020-05-28T14:17:30.453538649 6722.117490s info: Table 9a3585d0-f665-4b54-b8c3-66bf3a676342: Added replica on this server.
+2020-05-28T14:17:30.513212105 6722.177163s info: Table 9a3585d0-f665-4b54-b8c3-66bf3a676342: This server is Raft leader for term 1. Latest log index is 0.

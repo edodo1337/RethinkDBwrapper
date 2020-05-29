@@ -1,0 +1,2 @@
+class DatabaseProcessError(Exception):
+    pass
