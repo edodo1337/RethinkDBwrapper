@@ -1,6 +1,7 @@
 from rethinkdb import RethinkDB
 from rethinkdb.errors import RqlRuntimeError, RqlDriverError
-
+import inspect
+import sys
 
 class DBWrapper:
     RDB_HOST = None
@@ -22,7 +23,6 @@ class DBWrapper:
         self.RDB_PORT = kwargs.get('RDB_PORT', 28015)
 
     def setup(self):
-        print("HELLO")
         r = RethinkDB()
         self.__connection = r.connect(host=self.RDB_HOST, port=self.RDB_PORT)
         try:
@@ -33,6 +33,27 @@ class DBWrapper:
         finally:
             self.__rdb = r.db(self.APP_DB)
             self.__connection.close()
+
+
+
+    def init_tables(self):
+        import db.models
+        a = [m[0].lower() for m in inspect.getmembers(db.models, inspect.isclass)]
+        # a[0].init_table()
+        self.table_create(a[0])
+
+
+    def table_create(self, table_name):
+        print('here')
+        conn = self.connection
+        try:
+            self.__rdb.table_create(table_name).run(conn)
+            print(f' * [x] Table "{table_name}" created')
+        except RqlRuntimeError:
+            print(f' * [-] Table "{table_name}" is already exist.')
+        finally:
+            conn.close()
+
 
     @property
     def connection(self):

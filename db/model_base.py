@@ -12,6 +12,7 @@ class MetaModel(type):
             attrs['_table'] = name.lower()
         return type.__new__(cls, name, bases, attrs)
 
+
     @property
     def table(self):
         return self._table
@@ -21,6 +22,13 @@ class RethinkDBModel(metaclass=MetaModel):
     def __init__(self, **kwargs):
         for name, value in kwargs.items():
             setattr(self, name, value)
+
+
+    # @classmethod
+    # def init_table(cls):
+    #     if cls.__name__.lower() not in ['metamodel', 'rethinkdbmodel']:
+    #         print(cls.__name__.lower())
+            
 
     @classmethod
     @establish_connection
