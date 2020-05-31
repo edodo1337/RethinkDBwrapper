@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, g, Blueprint
 from flask_restful import Api, reqparse
 from views.add_user import AddUser
-from db.utils import DBConnector
+from db.utils import DBWrapper
 from db.models.user import User
 
 app = Flask(__name__)

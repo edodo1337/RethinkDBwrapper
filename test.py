@@ -13,3 +13,6 @@ rdb = db_wrap.rdb
 print(rdb.table('user').run(conn))
 
 print(User.table)
+
+
+

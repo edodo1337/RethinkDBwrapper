@@ -3,3 +3,5 @@ venv
 rethink_data
 .idea
 __pycache__
+.vscode
+*.pyc

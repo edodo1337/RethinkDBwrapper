@@ -23,7 +23,6 @@ class DBWrapper:
 
     def setup(self):
         print("HELLO")
-        print(self.attrs)
         r = RethinkDB()
         self.__connection = r.connect(host=self.RDB_HOST, port=self.RDB_PORT)
         try:
