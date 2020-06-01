@@ -33,6 +33,7 @@ class DBWrapper:
         finally:
             self.__rdb = r.db(self.APP_DB)
             self.__connection.close()
+        self.init_tables()
 
 
 
@@ -44,7 +45,6 @@ class DBWrapper:
 
 
     def table_create(self, table_name):
-        print('here')
         conn = self.connection
         try:
             self.__rdb.table_create(table_name).run(conn)
