@@ -17,15 +17,29 @@ class MetaModel(type):
         return self._table
 
 
-class RethinkDBModel(metaclass=MetaModel):
-    def __init__(self, **kwargs):
-        for name, value in kwargs.items():
-            setattr(self, name, value)
+class classproperty:
+    def __init__(self, fget):
+        self.fget = fget
 
-    # @classmethod
-    # def init_table(cls):
-    #     if cls.__name__.lower() not in ['metamodel', 'rethinkdbmodel']:
-    #         print(cls.__name__.lower())
+    def __get__(self, owner, cls):
+        return self.fget(cls)
+
+
+class RethinkDBModel:
+    # def __init__(self, **kwargs):
+    #     for name, value in kwargs.items():
+    #         setattr(self, name, value)
+    _table = None
+
+    @classmethod
+    def init_table(cls):
+        if cls.__name__.lower() not in ['metamodel', 'rethinkdbmodel']:
+            cls._table = cls.__name__.lower()
+            # return cls
+
+    @classproperty
+    def table(cls):
+        return cls._table
 
     @classmethod
     @establish_connection
@@ -58,11 +72,10 @@ class RethinkDBModel(metaclass=MetaModel):
         conn = db_wrap.connection
         data = rdb.table(cls._table).get(id).run(conn)
         obj = None
-        if data is not None:
-            print('data', data)
-            obj = cls(**data)
+        # if data is not None:
+        #     obj = cls(**data)
 
-        return obj
+        return data
 
     @classmethod
     @establish_connection
@@ -71,11 +84,9 @@ class RethinkDBModel(metaclass=MetaModel):
         rdb = db_wrap.rdb
         # conn = g.rdb_conn
         conn = db_wrap.connection
-        print("HERE", fields)
         if fields:
-            print('here')
-            return list(rdb.table(cls._table).filter(predicate).pluck(fields).run(conn))
-        return list(rdb.table(cls._table).filter(predicate).run(conn))
+            return rdb.table(cls._table).filter(predicate).pluck(fields).run(conn)
+        return rdb.table(cls._table).filter(predicate).run(conn)
 
     @classmethod
     @establish_connection
@@ -85,7 +96,7 @@ class RethinkDBModel(metaclass=MetaModel):
         # conn = g.rdb_conn
         conn = db_wrap.connection
 
-        return list(rdb.table(cls._table).run(conn))
+        return rdb.table(cls._table).run(conn)
 
     @classmethod
     @establish_connection

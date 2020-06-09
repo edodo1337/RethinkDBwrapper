@@ -4,3 +4,7 @@ from datetime import datetime
 
 class User(RethinkDBModel):
     pass
+
+
+class Book(RethinkDBModel):
+    pass

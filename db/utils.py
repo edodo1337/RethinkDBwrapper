@@ -9,10 +9,10 @@ class DBWrapper:
     RDB_HOST = None
     RDB_PORT = None
     APP_DB = None
-    __rdb = None
-    __connection = None
+    _rdb = None
+    _connection = None
 
-    __instance = None
+    _instance = None
 
     def __new__(cls):
         if not hasattr(cls, 'instance'):
@@ -26,30 +26,32 @@ class DBWrapper:
 
     def setup(self):
         r = RethinkDB()
-        self.__connection = r.connect(host=self.RDB_HOST, port=self.RDB_PORT)
+        self._connection = r.connect(host=self.RDB_HOST, port=self.RDB_PORT)
         try:
-            r.db_create(self.APP_DB).run(self.__connection)
+            r.db_create(self.APP_DB).run(self._connection)
             print(f' * [x] Database "{self.APP_DB}" created')
         except RqlRuntimeError:
             print(f' * [-] Database "{self.APP_DB}" is already exist.')
         finally:
-            self.__rdb = r.db(self.APP_DB)
-            self.__connection.close()
+            self._rdb = r.db(self.APP_DB)
+            self._connection.close()
         self.init_tables()
 
     def init_tables(self):
         import db.models
-        a = [m[0].lower() for m in inspect.getmembers(db.models, inspect.isclass)]
+        class_list = [m for m in inspect.getmembers(db.models, inspect.isclass)]
         # a[0].init_table()
-        self.table_create(a[0])
+        for item in class_list:
+            self.table_create(item)
 
-    def table_create(self, table_name):
+    def table_create(self, class_item):
         conn = self.connection
         try:
-            self.__rdb.table_create(table_name).run(conn)
-            print(f' * [x] Table "{table_name}" created')
+            class_item[1].init_table()
+            self._rdb.table_create(class_item[1]._table).run(conn)
+            print(f' * [x] Table "{class_item[1]._table}" created')
         except RqlRuntimeError:
-            print(f' * [-] Table "{table_name}" is already exist.')
+            print(f' * [-] Table "{class_item[0]}" is already exist.')
         finally:
             conn.close()
 
@@ -64,7 +66,7 @@ class DBWrapper:
 
     @property
     def rdb(self):
-        return self.__rdb
+        return self._rdb
 
     @classmethod
     def get_solo(cls):
