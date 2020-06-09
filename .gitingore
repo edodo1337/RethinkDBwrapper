@@ -5,3 +5,5 @@ rethink_data
 __pycache__
 .vscode
 *.pyc
+/.vscode
+/.venv

@@ -12,7 +12,6 @@ class MetaModel(type):
             attrs['_table'] = name.lower()
         return type.__new__(cls, name, bases, attrs)
 
-
     @property
     def table(self):
         return self._table
@@ -23,12 +22,10 @@ class RethinkDBModel(metaclass=MetaModel):
         for name, value in kwargs.items():
             setattr(self, name, value)
 
-
     # @classmethod
     # def init_table(cls):
     #     if cls.__name__.lower() not in ['metamodel', 'rethinkdbmodel']:
     #         print(cls.__name__.lower())
-            
 
     @classmethod
     @establish_connection
@@ -54,11 +51,11 @@ class RethinkDBModel(metaclass=MetaModel):
 
     @classmethod
     @establish_connection
-    def find(cls, id):
-        db_conn = DBWrapper.get_solo()
-        rdb = db_conn.rdb
+    def get(cls, id):
+        db_wrap = DBWrapper.get_solo()
+        rdb = db_wrap.rdb
         # conn = g.rdb_conn
-        conn = db_conn.get_connection()
+        conn = db_wrap.connection
         data = rdb.table(cls._table).get(id).run(conn)
         obj = None
         if data is not None:
@@ -69,11 +66,26 @@ class RethinkDBModel(metaclass=MetaModel):
 
     @classmethod
     @establish_connection
-    def filter(cls, predicate):
-        db_conn = DBWrapper.get_solo()
-        rdb = db_conn.rdb
-        conn = g.rdb_conn
-        return list(r.table(cls._table).filter(predicate).run(conn))
+    def filter(cls, predicate, fields=None):
+        db_wrap = DBWrapper.get_solo()
+        rdb = db_wrap.rdb
+        # conn = g.rdb_conn
+        conn = db_wrap.connection
+        print("HERE", fields)
+        if fields:
+            print('here')
+            return list(rdb.table(cls._table).filter(predicate).pluck(fields).run(conn))
+        return list(rdb.table(cls._table).filter(predicate).run(conn))
+
+    @classmethod
+    @establish_connection
+    def all(cls):
+        db_wrap = DBWrapper.get_solo()
+        rdb = db_wrap.rdb
+        # conn = g.rdb_conn
+        conn = db_wrap.connection
+
+        return list(rdb.table(cls._table).run(conn))
 
     @classmethod
     @establish_connection

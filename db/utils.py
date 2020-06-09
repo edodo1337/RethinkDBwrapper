@@ -2,6 +2,8 @@ from rethinkdb import RethinkDB
 from rethinkdb.errors import RqlRuntimeError, RqlDriverError
 import inspect
 import sys
+import asyncio
+
 
 class DBWrapper:
     RDB_HOST = None
@@ -35,14 +37,11 @@ class DBWrapper:
             self.__connection.close()
         self.init_tables()
 
-
-
     def init_tables(self):
         import db.models
         a = [m[0].lower() for m in inspect.getmembers(db.models, inspect.isclass)]
         # a[0].init_table()
         self.table_create(a[0])
-
 
     def table_create(self, table_name):
         conn = self.connection
@@ -53,7 +52,6 @@ class DBWrapper:
             print(f' * [-] Table "{table_name}" is already exist.')
         finally:
             conn.close()
-
 
     @property
     def connection(self):
@@ -79,14 +77,15 @@ def establish_connection(func):
     def wrapper(*args, **kwargs):
         db = DBWrapper.get_solo()
         print('[x] Before request')
-        try:
-            db.connection = db.get_connection()
-        except RqlDriverError:
-            raise
+        # try:
+        #     db.connection = db.get_connection()
+        # except RqlDriverError:
+        #     raise
 
         result = func(*args, **kwargs)
 
         print('[x] After request')
+
         try:
             db.connection.close()
         except AttributeError:
